@@ -133,7 +133,9 @@ voicein/
 ├── manifest.json       # extension metadata, permissions, content script
 ├── popup.html          # settings popup UI and styles
 ├── popup.js            # settings, status check, shortcut link
-└── icons/              # extension toolbar icons
+├── icons/              # extension toolbar icons
+├── CONTRIBUTING.md     # how to contribute via pull requests
+└── LICENSE             # MIT license
 ```
 
 ## Development
@@ -150,8 +152,10 @@ node --check popup.js
 
 ## Contributing
 
-Issues and pull requests are welcome. If something breaks on a specific website, include the site type, browser version, and the popup status message.
+Contributions are welcome! The `main` branch is protected, so please **fork the repo, create a branch, and open a pull request** — direct pushes to `main` are not allowed.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
 ## License
 
-No license has been specified yet. This is a personal project shared for convenience.
+[MIT](LICENSE) © Kayiira Edward
