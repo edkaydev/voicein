@@ -17,24 +17,58 @@ VoiceIn is a small Chrome Manifest V3 extension with a persistent, orange-accent
 - **Site-aware** — works with inputs, textareas, contenteditable fields, shadow DOM, and same-origin iframes
 - **No backend** — no VoiceIn server, analytics, or account required
 
-## Install from GitHub
+## Add VoiceIn to Chrome
 
-1. Download this repository as a ZIP, or clone it:
+VoiceIn is not published on the Chrome Web Store yet, so install it in developer mode. This works on personal Chrome profiles and takes about a minute.
 
-   ```bash
-   git clone https://github.com/edkaydev/voicein.git
-   ```
+### 1. Get the files
 
-2. Open `chrome://extensions` in Chrome.
-3. Turn on **Developer mode**.
-4. Click **Load unpacked**.
-5. Select the folder that contains `manifest.json` — for a cloned repo, that is the `voicein` folder.
-6. Optionally pin VoiceIn from the extensions menu.
-7. Click any text field and speak.
+**Option A — download ZIP (no terminal):**
 
-> Keep the folder where it is after loading. Chrome reads the extension files from that path. For a downloaded ZIP, extract it first and select the inner folder — Chrome does not load `.zip` files directly.
+1. Open https://github.com/edkaydev/voicein.
+2. Click **Code → Download ZIP**.
+3. Extract the downloaded file. On macOS, double-click the ZIP; on Windows, right-click it and choose **Extract All**.
+4. Open the extracted folder. You should see `manifest.json`, `content.js`, `popup.html`, and an `icons` folder.
 
-To update later, pull/download the newest source, then click the reload icon on the VoiceIn card in `chrome://extensions`.
+**Option B — clone with Git:**
+
+```bash
+git clone https://github.com/edkaydev/voicein.git
+cd voicein
+```
+
+### 2. Load it into Chrome
+
+1. Open Chrome.
+2. In the address bar, go to `chrome://extensions` and press Enter.
+3. Turn on **Developer mode** using the toggle in the top-right corner.
+4. Click **Load unpacked** in the top-left corner.
+5. In the file picker, select the folder that directly contains `manifest.json` — for example `voicein` or `voicein-main`.
+6. Click **Select Folder** / **Open**.
+7. The **VoiceIn** card should appear in the list. If Chrome shows an error, make sure you selected the inner folder with `manifest.json`, not the ZIP file or the folder above it.
+8. Click the puzzle-piece icon in Chrome's toolbar and pin **VoiceIn** so the settings popup is easy to open.
+
+### 3. Test it
+
+1. Open a normal website, such as a search engine or your email.
+2. Click a text field. The glass mic dock should appear at the bottom-left.
+3. Allow microphone access if Chrome asks.
+4. Speak a sentence, then pause. The words should appear live and then drop into the field automatically.
+
+> Chrome needs an internet connection for speech recognition, and some sites need a page refresh after the extension is first installed. If the dock does not appear, reload the tab and check the status line in the VoiceIn popup.
+
+### Update or remove it
+
+- **Update:** download or pull the newest source, then click the reload icon on the VoiceIn card in `chrome://extensions`.
+- **Remove:** click **Remove** on the VoiceIn card in `chrome://extensions`.
+
+> Keep the selected folder on your computer. Chrome loads the extension files from that path, so moving or deleting the folder will break the extension until you load it again.
+
+### Share with friends
+
+Send them https://github.com/edkaydev/voicein and have them follow the same steps. They do not need Git if they use **Download ZIP**.
+
+For a normal **Add to Chrome** button instead of developer mode, the extension would need to be published to the Chrome Web Store. That requires a Chrome Web Store developer account, zipping the folder contents with `manifest.json` at the root, completing the store listing and privacy disclosures, and passing Google's review.
 
 ## How to use
 
