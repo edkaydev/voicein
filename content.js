@@ -105,6 +105,26 @@
           border:0;padding:0;margin:0;background:transparent;pointer-events:auto;
           font:13px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1a1a2e;
           overflow:visible;
+          --panel-bg:linear-gradient(135deg,rgba(255,255,255,0.22),rgba(255,255,255,0.06));
+          --panel-border:rgba(255,255,255,0.35);
+          --panel-shadow:0 8px 32px rgba(0,0,0,0.15),inset 0 1px 1px rgba(255,255,255,0.7),inset 0 -2px 6px rgba(255,255,255,0.2),inset 0 0 12px rgba(255,255,255,0.1);
+          --title:#64748b;
+          --stream:#1a1a2e;
+          --stream-shadow:0 1px 0 rgba(255,255,255,0.35);
+          --foot:#64748b;
+          --foot-border:rgba(26,26,46,.08);
+        }
+        @media (prefers-color-scheme: dark){
+          .dock{
+            --panel-bg:linear-gradient(135deg,rgba(30,30,46,0.55),rgba(20,20,35,0.3));
+            --panel-border:rgba(255,255,255,0.18);
+            --panel-shadow:0 8px 32px rgba(0,0,0,0.35),inset 0 1px 1px rgba(255,255,255,0.15),inset 0 -2px 6px rgba(255,255,255,0.05),inset 0 0 12px rgba(255,255,255,0.04);
+            --title:#94a3b8;
+            --stream:#fff;
+            --stream-shadow:0 1px 3px rgba(0,0,0,0.45);
+            --foot:#94a3b8;
+            --foot-border:rgba(255,255,255,0.1);
+          }
         }
         .fab{
           all:unset;cursor:pointer;position:relative;display:grid;place-items:center;width:52px;height:52px;border-radius:24px;
@@ -134,24 +154,24 @@
 
         .panel{
           display:none;width:340px;max-width:calc(100vw - 36px);
-          background:linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.02));
-          border:1px solid rgba(255,255,255,0.25);
+          background:var(--panel-bg);
+          border:1px solid var(--panel-border);
           backdrop-filter:blur(6px) saturate(160%);-webkit-backdrop-filter:blur(6px) saturate(160%);
           border-radius:24px;
-          box-shadow:0 8px 32px rgba(0,0,0,0.15),inset 0 1px 1px rgba(255,255,255,0.6),inset 0 -2px 6px rgba(255,255,255,0.15),inset 0 0 12px rgba(255,255,255,0.08);
+          box-shadow:var(--panel-shadow);
           padding:14px 16px 12px;overflow:hidden;
         }
         .panel.show{display:block;animation:in .2s cubic-bezier(.16,1,.3,1)}
         @keyframes in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
         .panel-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
-        .panel-title{font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#64748b}
+        .panel-title{font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--title)}
         .panel.listening .panel-title{color:#f97316}
         .panel.error .panel-title{color:#b91c1c}
         .panel-close{all:unset;cursor:pointer;width:24px;height:24px;border-radius:8px;display:grid;place-items:center;color:#94a3b8;font-size:18px;line-height:1}
         .panel-close:hover{background:rgba(26,26,46,.06);color:#1a1a2e}
-        .stream{font-size:15px;line-height:1.5;max-height:150px;overflow-y:auto;color:#fff;word-break:break-word;min-height:22px;white-space:pre-wrap;text-shadow:0 1px 3px rgba(0,0,0,0.45)}
-        .stream.empty{color:#fff;font-style:italic;opacity:0.8}
-        .panel-foot{margin-top:10px;font-size:11px;color:#94a3b8;border-top:1px solid rgba(26,26,46,.06);padding-top:8px}
+        .stream{font-size:15px;line-height:1.5;max-height:150px;overflow-y:auto;color:var(--stream);word-break:break-word;min-height:22px;white-space:pre-wrap;text-shadow:var(--stream-shadow)}
+        .stream.empty{color:var(--stream);font-style:italic;opacity:0.75}
+        .panel-foot{margin-top:10px;font-size:11px;color:var(--foot);border-top:1px solid var(--foot-border);padding-top:8px}
         .panel.error .panel-foot{color:#b91c1c}
       </style>
       <div class="dock" id="dock" popover="manual">
